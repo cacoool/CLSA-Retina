@@ -1,0 +1,48 @@
+[data paths]
+path_local =  datasets/Optina_datasets_training_testing/
+train_imgs_original = OPTINA_dataset_imgs_train_Montreal.hdf5
+train_groundTruth = OPTINA_dataset_groundTruth_train_Montreal.hdf5
+test_imgs_original = OPTINA_dataset_imgs_test_Montreal.hdf5
+test_groundTruth = OPTINA_dataset_groundTruth_test_Montreal.hdf5
+# M3FCN
+[experiment name]
+name = LadderNet_Montreal_2Cubes_PostivieWeights
+modelName = LadderNet
+
+[model]
+layers = 4
+filters = 10
+num_classes = 2
+inplanes = 1
+[data attributes]
+hyperX = True
+channels = 1
+patch_height = 96
+patch_width = 96
+
+[training settings]
+trainLocation = ALL_RGB
+N_subimgs = 2500
+inside_FOV = False
+start_epoch = 0
+N_epochs = 2500
+batch_size = 32
+lr = 0.001
+val_portion = 0.2
+resume = False
+flip_augmentation = True
+affine_augmentation = False
+mixture_augmentation = False
+
+[testing settings]
+testLocation = ALL_RGB
+#Choose the model to test: best==epoch with min loss, last==last epoch
+best_last = best
+#number of full images for the test
+full_images_to_test = 300
+threshold_confusion = 0.5
+average_mode = True
+multipleThreshold = False
+#Only if average_mode==True. Stride for patch extraction, lower value require more patches to be predicted
+stride_height = 15
+stride_width = 15
