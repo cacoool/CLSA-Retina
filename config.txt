@@ -5,7 +5,7 @@ path_dataset =  ./CLSA_CFA_GRAHAM_GoodAndUsable.hdf5
 name = Test
 
 [training settings]
-N_epochs = 250
+N_epochs = 100
 batch_size = 32
 lr = 0.001
 flip_augmentation = True
